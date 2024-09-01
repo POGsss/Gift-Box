@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Patrick Hand', cursive;
+  background-color: #F6D1D8;
+}
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F6D1D8;
+  border-right: 0px solid #D1193E;
+  z-index: 9;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+}
+.heart {
+  position: relative;
+}
+.heart,
+.heart:before,
+.heart:after {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: #D1193E;
+  transform: rotateZ(45deg);
+}
+.heart:before,
+.heart:after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+.heart:before {
+  transform: translateX(-50%);
+  -webkit-animation: animX 1.5s infinite 0.25s;
+          animation: animX 1.5s infinite 0.25s;
+}
+.heart:after {
+  transform: translateY(-50%);
+  -webkit-animation: animY 1.5s infinite;
+          animation: animY 1.5s infinite;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 200px;
+  width: 300px;
+  background-color: #D1193E;
+  border-radius: 0 0 10px 10px;
+  z-index: 0;
+}
+
+.lid {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid transparent;
+  border-left: 150px solid transparent;
+  transform-origin: top;
+  transition: transform 0.25s linear;
+}
+
+/* Lid when closed */
+.lid.one {
+  border-top: 100px solid #DA4765;
+  transform: rotateX(0deg);
+  z-index: 3;
+  transition-delay: 1.25s;
+}
+
+/* Lid when opened */
+.lid.two {
+  border-top: 100px solid #D1193E;
+  transform: rotateX(90deg);
+  z-index: 1;
+  transition-delay: 1s;
+}
+
+.envelope {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-top: 100px solid transparent;
+  border-right: 150px solid #D63051;
+  border-bottom: 100px solid #DA4765;
+  border-left: 150px solid #D63051;
+  border-radius: 0 0 10px 10px;
+  z-index: 4;
+}
+
+.letter {
+  animation: 1s ease forwards close;
+  position: absolute;
+  top: 0px;
+  width: 90%;
+  height: 90%;
+  background-color: #FAE8EC;
+  border-radius: 10px;
+  padding: 20px;
+  outline: 5px solid #DA4765;
+  outline-offset: -15px;
+  border-collapse: separate;
+  border-spacing: 15;
+  box-shadow: rgba(0, 0, 0, 0) 0px 10px 15px -3px,
+  rgba(0, 0, 0, 0) 0px 4px 6px -2px;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.message {
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 5px 0px 50px 5px;
+  color: #DA4765;
+}
+
+.dedicated {
+  text-align: left;
+  font-size: 10px;
+  margin: 10px 0 0 130px;
+  color: #DA4765;
+}
+
+.wrapper:hover .lid.one {
+  transform: rotateX(90deg);
+  transition-delay: 0s;
+}
+
+.wrapper:hover .lid.two {
+  transform: rotateX(180deg);
+  transition-delay: 0.25s;
+}
+
+.wrapper:hover .letter {
+  animation: 1s ease 0.5s forwards open;
+}
+
+@keyframes animX {
+  0%, 25% {
+    transform: translateX(-50%);
+  }
+  50%, 75% {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes animY {
+  0%, 25% {
+    transform: translateY(-50%);
+  }
+  50%, 75% {
+    transform: translateY(50%);
+  }
+}
+
+@keyframes open {
+  0% {
+    transform: translateY(0px);
+    z-index: 1;
+  }
+  25% {
+    transform: translateY(-200px);
+    z-index: 4;
+    box-shadow: rgba(0, 0, 0, 0) 0px 10px 15px -3px, rgba(0, 0, 0, 0) 0px 4px 6px -2px;
+  }
+  70% {
+    transform: translateY(-210px);
+    z-index: 4;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  }
+  100% {
+    transform: translateY(-30px);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    z-index: 4;
+  }
+}
+
+@keyframes close {
+  0% {
+    transform: translateY(-30px);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    z-index: 4;
+  }
+  30% {
+    transform: translateY(-200px);
+    z-index: 4;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  }
+  65% {
+    transform: translateY(-210px);
+    z-index: 4;
+    box-shadow: rgba(0, 0, 0, 0) 0px 10px 15px -3px, rgba(0, 0, 0, 0) 0px 4px 6px -2px;
+  }
+  100% {
+    transform: translateY(0px);
+    z-index: 1;
+  }
+}

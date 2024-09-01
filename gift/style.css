@@ -1,0 +1,241 @@
+/*---------------- BASIC ----------------*/
+
+:root {
+  --background: #F6D1D8;
+  --gift: #D1193E;
+  --ribbon: #FFC756;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+}
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F6D1D8;
+  border-right: 0px solid #D1193E;
+  z-index: 9;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+}
+.heart {
+  position: relative;
+}
+.heart,
+.heart:before,
+.heart:after {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: #D1193E;
+  transform: rotateZ(45deg);
+}
+.heart:before,
+.heart:after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+.heart:before {
+  transform: translateX(-50%);
+  -webkit-animation: animX 1.5s infinite 0.25s;
+          animation: animX 1.5s infinite 0.25s;
+}
+.heart:after {
+  transform: translateY(-50%);
+  -webkit-animation: animY 1.5s infinite;
+          animation: animY 1.5s infinite;
+}
+
+@keyframes animX {
+  0%, 25% {
+    transform: translateX(-50%);
+  }
+  50%, 75% {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes animY {
+  0%, 25% {
+    transform: translateY(-50%);
+  }
+  50%, 75% {
+    transform: translateY(50%);
+  }
+}
+
+/*---------------- BASIC ----------------*/
+/*---------------- Gift ----------------*/
+
+#giftContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: none;
+  transition: 0.2s;
+}
+
+.open {
+  animation: 0.75s cubic-bezier(.36,.07,.19,.97) both wiggle;
+}
+
+#giftContainer .giftTop {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: var(--gift);
+  border-radius: 10px 10px 0 0;
+  z-index: 8;
+}
+
+#giftContainer .giftBottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 20px);
+  height: 250px;
+  background: var(--gift);
+  border-radius: 0 0 10px 10px;
+  z-index: 7;
+}
+
+#ribbonBG {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--gift);
+  border-radius: 10px 10px 0 0;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  z-index: 9;
+}
+
+#ribbon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35px;
+  height: 100%;
+  background: var(--ribbon);
+  z-index: 9;
+}
+
+#ribbon1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35px;
+  height: 100%;
+  background: var(--ribbon);
+  z-index: 9;
+}
+
+#ribbon2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 35px;
+  background: var(--ribbon);
+  z-index: 9;
+}
+
+#tie {
+  position: absolute;
+  top: -70%;
+  left: 45%;
+  transform: rotate(45deg);
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 75px solid var(--ribbon);
+  background: none;
+  z-index: -9;
+}
+
+#tie1 {
+  position: absolute;
+  top: -90%;
+  right: 45%;
+  transform: rotate(-45deg);
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 100px solid var(--ribbon);
+  background: none;
+  z-index: -9;
+}
+
+@keyframes wiggle {
+  10%, 90% {
+    transform: translate(-52%, -50%);
+  }
+  
+  20%, 80% {
+    transform: translate(-48%, -50%);
+  }
+
+  30%, 50%, 70% {
+    transform: translate(-52%, -50%);
+  }
+
+  40%, 60% {
+    transform: translate(-48%, -50%);
+  }
+}
+
+/*---------------- Gift ----------------*/
+/*---------------- Pop Up ----------------*/
+
+.popup {
+  position: absolute;
+  pointer-events: none;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: none;
+  color: var(--background);
+  animation: popUp 1s forwards;
+}
+
+@keyframes popUp {
+  0% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(-30px);
+  }
+}
+
+/*---------------- Pop Up ----------------*/
