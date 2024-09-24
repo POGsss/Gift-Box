@@ -1,1 +1,5 @@
-document.addEventListener();
+document.addEventListener("load", load());
+
+function load() {
+  
+}
