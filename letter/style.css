@@ -86,7 +86,7 @@ body {
 
 /* Lid when closed */
 .lid.one {
-  border-top: 100px solid #DA4765;
+  border-top: 100px solid #D1193E;
   transform: rotateX(0deg);
   z-index: 3;
   transition-delay: 1.25s;
@@ -108,7 +108,7 @@ body {
   left: 0;
   border-top: 100px solid transparent;
   border-right: 150px solid #D63051;
-  border-bottom: 100px solid #DA4765;
+  border-bottom: 100px solid #D1193E;
   border-left: 150px solid #D63051;
   border-radius: 0 0 10px 10px;
   z-index: 4;
@@ -148,18 +148,32 @@ body {
   color: #DA4765;
 }
 
-.wrapper:hover .lid.one {
+.wrapper.open .lid.one {
   transform: rotateX(90deg);
   transition-delay: 0s;
 }
 
-.wrapper:hover .lid.two {
+.wrapper.open .lid.two {
   transform: rotateX(180deg);
   transition-delay: 0.25s;
 }
 
-.wrapper:hover .letter {
+.wrapper.open .letter {
   animation: 1s ease 0.5s forwards open;
+}
+
+.wrapper.close .lid.one {
+  transform: rotateX(0deg);
+  transition-delay: 1.25s;
+}
+
+.wrapper.close .lid.two {
+  transform: rotateX(90deg);
+  transition-delay: 1s;
+}
+
+.wrapper.close .letter {
+  animation: 1s ease forwards close;
 }
 
 @keyframes animX {

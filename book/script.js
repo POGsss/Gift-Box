@@ -14,9 +14,18 @@ const paper8 = document.querySelector("#p8");
 const paper9 = document.querySelector("#p9");
 const paper10 = document.querySelector("#p10");
 
-var page = new Howl({
-      src: ['page.mp3']
+const pageSoundSrc = "sfx/page.mp3";
+
+window.addEventListener("load", function(){
+    setTimeout(loaded, 2500);
 });
+  
+function loaded(){
+    var load = document.getElementById("loader");
+    load.style.left = "-100%";
+    load.style.borderRight = "100px solid #D1193E";
+    load.style.visibility = "hidden";
+}
 
 prevBtn.addEventListener("click", goPrevPage);
 nextBtn.addEventListener("click", goNextPage);
@@ -45,6 +54,11 @@ function closeBook(isAtBeginning) {
     nextBtn.style.transform = "translateX(0px)";
 }
 
+function playPageSound() {
+    const page = new Audio(pageSoundSrc);
+    page.play();
+}
+
 function goNextPage() {
     if(currentLocation < maxLocation) {
         switch(currentLocation) {
@@ -52,53 +66,53 @@ function goNextPage() {
                 openBook();
                 paper1.classList.add("flipped");
                 setTimeout(function(){paper1.style.zIndex = 1;}, 1500);
-                page.play()
+                playPageSound();
                 break;
             case 2:
                 paper2.classList.add("flipped");
                 setTimeout(function(){paper2.style.zIndex = 2;}, 1500);
-                page.play();
+                playPageSound();
                 break;
             case 3:
                 paper3.classList.add("flipped");
                 setTimeout(function(){paper3.style.zIndex = 3;}, 1500);
-                page.play();
+                playPageSound();
                 break;
             case 4:
                 paper4.classList.add("flipped");
                 setTimeout(function(){paper4.style.zIndex = 4;}, 1500);
-                page.play();
+                playPageSound();
                 break;
             case 5:
                 paper5.classList.add("flipped");
                 setTimeout(function(){paper5.style.zIndex = 5;}, 1500);
-                page.play();
+                playPageSound();
                 break;
             case 6:
                 paper6.classList.add("flipped");
                 paper6.style.zIndex = 6;
-                page.play();
+                playPageSound();
                 break;
             case 7:
                 paper7.classList.add("flipped");
                 paper7.style.zIndex = 7;
-                page.play();
+                playPageSound();
                 break;
             case 8:
                 paper8.classList.add("flipped");
                 paper8.style.zIndex = 8;
-                page.play();
+                playPageSound();
                 break;
             case 9:
                 paper9.classList.add("flipped");
                 paper9.style.zIndex = 9;
-                page.play();
+                playPageSound();
                 break;
             case 10:
                 paper10.classList.add("flipped");
                 paper10.style.zIndex = 10;
                 closeBook(false);
-                page.play();
+                playPageSound();
                 break;
             default:
                 throw new Error("unkown state");
@@ -114,53 +128,53 @@ function goPrevPage() {
                 closeBook(true);
                 paper1.classList.remove("flipped");
                 paper1.style.zIndex = 10;
-                page.play();
+                playPageSound();
                 break;
             case 3:
                 paper2.classList.remove("flipped");
                 paper2.style.zIndex = 9;
-                page.play();
+                playPageSound();
                 break;
             case 4:
                 paper3.classList.remove("flipped");
                 paper3.style.zIndex = 8;
-                page.play();
+                playPageSound();
                 break;
             case 5:
                 paper4.classList.remove("flipped");
                 paper4.style.zIndex = 7;
-                page.play();
+                playPageSound();
                 break;
             case 6:
                 paper5.classList.remove("flipped");
                 paper5.style.zIndex = 6;
-                page.play();
+                playPageSound();
                 break;
             case 7:
                 paper6.classList.remove("flipped");
                 setTimeout(function(){paper6.style.zIndex = 5;}, 1500);
-                page.play();
+                playPageSound();
                 break;
             case 8:
                 paper7.classList.remove("flipped");
                 setTimeout(function(){paper7.style.zIndex = 4;}, 1500);
-                page.play();
+                playPageSound();
                 break;
             case 9:
                 paper8.classList.remove("flipped");
                 setTimeout(function(){paper8.style.zIndex = 3;}, 1500);
-                page.play();
+                playPageSound();
                 break;
             case 10:
                 paper9.classList.remove("flipped");
                 setTimeout(function(){paper9.style.zIndex = 2;}, 1500);
-                page.play();
+                playPageSound();
                 break;
             case 11:
                 openBook();
                 paper10.classList.remove("flipped");
                 setTimeout(function(){paper10.style.zIndex = 1;}, 1500);
-                page.play();
+                playPageSound();
                 break;
             default:
                 throw new Error("unkown state");
